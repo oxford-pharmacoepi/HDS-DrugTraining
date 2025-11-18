@@ -28,7 +28,7 @@ jobs:
           install.packages(c("pak", "renv"))
         shell: Rscript {0}
         
-     - name: Install R packages
+      - name: Install R packages
         run: |
           pak::pkg_install(pkg = renv::dependencies()$Package)
         shell: Rscript {0}
