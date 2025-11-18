@@ -23,15 +23,11 @@ jobs:
         with:
           r-version: '4.4.1'
   
-      - name: Install pak
-        run: |
-          install.packages("pak", repos = "https://cloud.r-project.org")
-        shell: Rscript {0}
-          
       - name: Install R packages
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          needs: website
+        run: |
+          install.packages(c("pak", "renv"), repos = "https://cloud.r-project.org")
+          pak::pkg_install(pkg = renv::dependencies()$Package)
+        shell: Rscript {0}
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
