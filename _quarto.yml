@@ -1,0 +1,41 @@
+project:
+  type: website
+
+date: today
+
+website:
+  title: "Drug Utilisation training"
+  open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
+  repo-url: https://github.com/oxford-pharmacoepi/HDS-DrugTraining
+  repo-actions: [issue]
+  page-footer:
+    center: "Rendered on {{< meta date >}}"
+    left: "Copyright 2025, Oxinfer"
+    right:
+      - text: W
+        href: https://oxford-pharmacoepi.github.io/Oxinfer/
+      - href: https://github.com/oxford-pharmacoepi
+        icon: github
+      - href: https://www.youtube.com/@oxinfer
+        icon: youtube
+  navbar:
+    left:
+      - text: Let's get started
+        href: setup.qmd
+      - text: Drug Exposure Diagnostics
+        href: ded.qmd
+      - text: Drug Utilisation
+        href: dus.qmd
+    right:
+      - text: W
+        href: https://oxford-pharmacoepi.github.io/Oxinfer/
+      - href: https://github.com/oxford-pharmacoepi
+        icon: github
+      - href: https://www.youtube.com/@oxinfer
+        icon: youtube
+
+format:
+  html:
+    toc: true
+    theme: cosmo
+    search: false

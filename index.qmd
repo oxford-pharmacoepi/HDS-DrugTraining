@@ -1,0 +1,11 @@
+# Drug training
+
+This website contains the content for the 'Drug Utilisation training' conducted as part of the *Health Data Sciences seminars sessions* on Friday 21st of November 2025.
+
+-   [**Let's get started**](setup.qmd) contains the instructions to set up your environment so you can follow the session.
+-   [**Drug Exposure Diagnostics**](ded.qmd) contains the presentation that will be conducted during the training.
+-   [**Drug Utilisation**](dus.qmd) contains the presentation that will be conducted during the training.
+
+<div style="text-align: center;">
+  <img src="images/hds_logo.svg" width="150" />
+</div>
