@@ -25,3 +25,7 @@ editor: visual
 ---
 
 ## Drug Exposure Diagnostics
+
+```{r}
+library(DrugExposureDiagnostics)
+```
