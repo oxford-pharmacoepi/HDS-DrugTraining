@@ -27,7 +27,7 @@ editor: visual
 
 ## DrugExposureDiagnostics
 
-![](https://github.com/darwin-eu/DrugExposureDiagnostics/blob/main/man/figures/DrugExposureDiagnostics.png?raw=true)
+![](https://github.com/darwin-eu/DrugExposureDiagnostics/blob/main/man/figures/DrugExposureDiagnostics.png?raw=true){fig-align="center"}
 
 **DrugExposureDiagnostics** is a package to conduct Ingredient specific diagnostics for drug exposure records in the Observational Medical Outcomes Partnership (OMOP) common data model.
 
@@ -35,23 +35,23 @@ editor: visual
 
 ## Main functions you would need to interact with
 
+. . .
+
 Before running any drug utilisation study, it is paramount to examine the quality of your drug exposure data in your OMOP CDM. To support this, the OHDSI community has developed an open-source R package, DrugExposureDiagnostics.
 
 . . .
 
 There are two functions you often need to interact with in practice:
 
-. . .
-
 1. To run the user-specified checks on drug information `executeChecks()`.
-
-. .  .
 
 2. To viewing the results via interactive shiny `viewResults()`.
 
 ## Create a CDM reference
 
-For this demonstration we will use the
+. . .
+
+For this demonstration we will use the *GiBleed* dataset:
 
 ```{r}
 library(DrugExposureDiagnostics)
@@ -65,6 +65,8 @@ cdm
 
 ## Explore the cdm_reference
 
+. . .
+
 Feel free to have a quick check on your CDM Drug Exposure table:
 
 ```{r}
@@ -73,6 +75,8 @@ cdm$drug_exposure |>
 ```
 
 ## `executeChecks()`
+
+. . .
 
 `executeChecks()` runs a set of ingredient-level diagnostics on the OMOP CDM drug exposure data and returns a named list of diagnostic results.
 
@@ -83,6 +87,8 @@ cdm$drug_exposure |>
 ```
 
 ## Imagine you have a study centred around common pain-relief medications.
+
+. . .
 
 Suppose you want to investigate a simple and familiar ingredients: **acetaminophen**.
 
@@ -100,6 +106,8 @@ Then you can look into checks including:
 4. route (e.g., oral, tablet, topical)
 
 ## Example code for executeChecks()
+
+. . .
 
 ```{r}
 ingredient_checks <- executeChecks(
@@ -120,26 +128,37 @@ ingredient_checks$missingValuesOverall |>
 
 ## What other checks can you do?
 
+. . .
+
 You may have noticed that from `?executeChecks()` that these checks can be performed:
 
-- "missing"
-- "exposureDuration"
-- "type"
-- "route"
+::: columns
+::: column
+- "missing"  
+- "exposureDuration"  
+- "type"  
+- "route"  
 - "sourceConcept"
-- "daysSupply"
-- "verbatimEndDate"
-- "dose"
-- "sig"
-- "quantity"
-- "daysBetween"
-- "diagnosticsSummary"
+- "daysSupply" 
+:::
+
+::: column
+- "verbatimEndDate"  
+- "dose"  
+- "sig"  
+- "quantity"  
+- "daysBetween"  
+- "diagnosticsSummary"  
+:::
+:::
 
 ## Visualise the results
 
 You can produce a shiny to visualise the results using `viewResults()`. 
 
 ## Visualise the results
+
+. . .
 
 First you would need to export the results.
 
@@ -156,6 +175,8 @@ Now you should see a .zip file in your working directory.
 
 ## Visualise the results
 
+. . .
+
 ```{r, eval=FALSE}
 viewResults(dataFolder = here())
 ```
@@ -163,6 +184,8 @@ viewResults(dataFolder = here())
 This will prompt you to install a couple packages. At the end you have a new directory where you can launch the shiny!
 
 ## Exercise
+
+. . .
 
 Now it is your turn:
 
