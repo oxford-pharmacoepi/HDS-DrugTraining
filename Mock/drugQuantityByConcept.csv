@@ -1,0 +1,7 @@
+"database_id","drug_concept_id","drug","ingredient_concept_id","ingredient","n_records","n_sample","n_person","minimum_drug_exposure_quantity","q05_drug_exposure_quantity","q10_drug_exposure_quantity","q25_drug_exposure_quantity","median_drug_exposure_quantity","q75_drug_exposure_quantity","q90_drug_exposure_quantity","q95_drug_exposure_quantity","maximum_drug_exposure_quantity","result_obscured"
+"Mock",1127078,"acetaminophen 750 MG / Hydrocodone Bitartrate",1125315,"acetaminophen",8,10000,8,3,3.7,4.4,5,6,7,7.9,8.95,10,FALSE
+"Mock",1127433,"acetaminophen 325 MG / Oxycodone Hydrochloride",1125315,"acetaminophen",8,10000,6,1,1.7,2.4,3.75,4,5.25,6,6,6,FALSE
+"Mock",19133768,"acetaminophen 160 MG Oral Tablet",1125315,"acetaminophen",8,10000,8,1,1.7,2.4,3.75,5,8.5,10,10,10,FALSE
+"Mock",40162522,"acetaminophen 325 MG Oral Tablet",1125315,"acetaminophen",12,10000,10,1,2.1,3.1,4,5.5,7.25,9.8,10,10,FALSE
+"Mock",40229134,"acetaminophen 21.7 MG/ML / Dextromethorphan",1125315,"acetaminophen",6,10000,6,2,2.25,2.5,3.25,4.5,5,7.5,8.75,10,FALSE
+"Mock",40231925,"acetaminophen 325 MG / Hydrocodone Bitartrate",1125315,"acetaminophen",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,TRUE

@@ -1,6 +1,6 @@
 ---
 title: "DrugExposureDiagnostics"
-subtitle: "An overview of GitHub and Codelists"
+subtitle: "An R package to assess the quality of drug information in your CDM"
 format:
   revealjs: 
     theme: [simple, styleSS25.scss]
@@ -8,6 +8,7 @@ format:
     slide-number: true
     chalkboard: true
     preview-links: auto
+    cold-fold: true
     margin: 0.07
     code-link: true
     code-line-numbers: false
@@ -24,8 +25,125 @@ execute:
 editor: visual
 ---
 
-## Drug Exposure Diagnostics
+## Main functions you would need to interact with
+
+Before running any drug utilisation study, it is paramount to examine the quality of your drug exposure data in your OMOP CDM. To support this, the OHDSI community has developed an open-source R package, DrugExposureDiagnostics.
+
+<br>
+
+There are two functions you often need to interact with in practice. <br>
+
+Runs user-specified checks on drug information
+
+```{r, eval =FALSE}
+DrugExposureDiagnostics::executeChecks()
+
+```
+
+Viewing the results via interactive shiny
+
+```{r, eval =FALSE}
+DrugExposureDiagnostics::viewResults()
+
+```
+
+## Create a CDM reference
 
 ```{r}
 library(DrugExposureDiagnostics)
+library(CDMConnector)
+library(dplyr)
+library(DrugExposureDiagnostics)
+library(lubridate)
+
+cdm <- mockDrugExposure()
 ```
+
+Feel free to have a quick check on your CDM Drug Exposure table:
+
+```{r}
+cdm$drug_exposure |> dplyr::glimpse()
+```
+
+## DrugExposureDiganostics::executeChecks()
+
+DrugExposureDiganostics::executeChecks() runs a set of ingredient-level diagnostics on the OMOP CDM drug exposure data and returns a named list of diagnostic results. <br>
+
+```{r}
+?DrugExposureDiagnostics::executeChecks()
+```
+
+
+## Imagine you have a study centred around common pain-relief medications.
+
+Suppose you want to investigate a simple and familiar ingredients: **acetaminophen**.
+
+```{r}
+acetaminophen_codes <- c(1125315)
+```
+
+Then you can look into checks including:
+
+1. their missingness (e.g., missing start date, missing quantity)
+2. their exposure duration
+3. the quantity of the drugs
+4. route (e.g., oral, tablet, topical)
+
+## Example code for executeChecks()
+
+```{r}
+ingredient_checks <- DrugExposureDiagnostics::executeChecks(
+  cdm = cdm,
+  ingredients = acetaminophen_codes,
+  checks = c("missing", "exposureDuration", "route", "quantity"),
+  minCellCount = 5
+)
+```
+
+```{r}
+ingredient_checks$missingValuesOverall |> glimpse()
+```
+
+## What other checks can you do?
+
+You may have noticed that from `?DrugExposureDiagnostics::executeChecks()` that these checks can be performed: "missing", "exposureDuration", "type", "route", "sourceConcept", "daysSupply", "verbatimEndDate", "dose", "sig", "quantity", "daysBetween" and "diagnosticsSummary".
+
+## Visualise the results
+
+You can produce a shiny to visualise the results using `DrugExposureDiagnostics::viewResults()`. 
+
+## Visualise the results
+
+First you would need to save it.
+
+```{r}
+library(here)
+library(zip)
+DrugExposureDiagnostics::writeResultToDisk(
+  resultList = c(ingredient_checks),
+  databaseId = "Mock",
+  outputFolder = here::here(),
+  filename = paste0("Mock", "_DED_results")
+)
+```
+
+Now you should see a .zip file in your working directory.
+
+## Visualise the results
+```{r, eval=FALSE}
+library(shiny)
+DrugExposureDiagnostics::viewResults(
+  dataFolder = here::here()
+)
+```
+
+This will prompt you to install a couple packages. At the end you have a new directory where you can launch the shiny!
+
+## Exercise
+
+Now it is your turn:
+
+1. Connect to a real database.
+2. Choose a drug ingredient, e.g., amiodarone (1309944).
+3. Run checks to see their missingness, route, dose, and quantity.
+4. Visualise the results via Shiny.
