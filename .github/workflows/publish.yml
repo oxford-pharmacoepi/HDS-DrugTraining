@@ -13,6 +13,9 @@ name: Quarto Publish
 jobs:
   build-deploy:
     runs-on: ubuntu-22.04
+    
+    env:
+      OMOP_DATA_FOLDER: "mock"
 
     steps:
       - name: Check out repository
@@ -30,6 +33,12 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        
+      - name: DownloadEunomia
+        shell: RScript{0}
+        run: |
+          omopgenerics::omopDataFolder()
+          omock::downloadMockDataset(datasetName = "GiBleed")
 
       - name: Render Quarto website
         run: |

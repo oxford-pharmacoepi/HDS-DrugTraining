@@ -12,8 +12,42 @@ install.packages("pak")
 pak::pkg_install(c(
   "CDMConnector", "CodelistGenerator", "duckdb", "DrugUtilisation", 
   "DrugExposureDiagnostics", "CohortConstructor", "omock", "ggplot2", 
-  "visOmopResults", "gt"
+  "visOmopResults", "gt", "usethis", "shiny", "here"
 ))
 ```
+  4. Set up your environment:
+```{r, eval=FALSE}
+library(usethis)
+edit_r_environ()
+```
+
+Write the path to a folder in your computer to save the mock data:
+
+```
+OMOP_DATA_FOLDER = "path/to/my/folder"
+```
+
+  5. Restart R
   
+  6. Check your data folder has been set properly.
+  
+```{r}
+library(omopgenerics)
+omopDataFolder()
+```
+
+  7. Download *Eunomia* dataset:
+  
+```{r}
+library(omock)
+downloadMockDataset(datasetName = "GiBleed")
+```
+
+  8. Create a reference to the *Eunomia* dataset:
+  
+```{r}
+cdm <- mockCdmFromDataset(datasetName = "GiBleed")
+cdm
+```
+
 You are all set :)

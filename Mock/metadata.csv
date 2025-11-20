@@ -1,2 +1,0 @@
-"database_id","cdm_name","cdm_source_name","cdm_description","cdm_documentation_reference","cdm_version","cdm_holder","cdm_release_date","vocabulary_version","person_count","observation_period_count","earliest_observation_period_start_date","latest_observation_period_end_date","snapshot_date","package_version"
-"Mock","DEM","DrugExposureMock","DrugExposureMock","","5.4","ErasmusMC","2022-08-12","test","50","50","2000-03-24","2019-08-15","2025-11-20","1.1.5"

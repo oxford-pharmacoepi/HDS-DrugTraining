@@ -1,7 +1,0 @@
-"database_id","drug_concept_id","drug","ingredient_concept_id","ingredient","route_concept_id","route_type","n_records","n_sample","n_person","proportion_records","result_obscured"
-"Mock",40162522,"acetaminophen 325 MG Oral Tablet",1125315,"acetaminophen",4132161,"Oral",12,10000,10,0.272727272727273,FALSE
-"Mock",40229134,"acetaminophen 21.7 MG/ML / Dextromethorphan",1125315,"acetaminophen",4132161,"Oral",6,10000,6,0.136363636363636,FALSE
-"Mock",40231925,"acetaminophen 325 MG / Hydrocodone Bitartrate",1125315,"acetaminophen",NA,NA,NA,NA,NA,NA,TRUE
-"Mock",1127078,"acetaminophen 750 MG / Hydrocodone Bitartrate",1125315,"acetaminophen",4132161,"Oral",8,10000,8,0.181818181818182,FALSE
-"Mock",19133768,"acetaminophen 160 MG Oral Tablet",1125315,"acetaminophen",4132161,"Oral",8,10000,8,0.181818181818182,FALSE
-"Mock",1127433,"acetaminophen 325 MG / Oxycodone Hydrochloride",1125315,"acetaminophen",4132161,"Oral",8,10000,6,0.181818181818182,FALSE
