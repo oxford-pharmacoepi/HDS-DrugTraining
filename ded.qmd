@@ -60,6 +60,17 @@ library(dplyr)
 library(here)
 
 cdm <- mockCdmFromDataset(datasetName = "GiBleed", source = "duckdb")
+cdm$drug_exposure <- cdm$drug_exposure |>
+  mutate(quantity = sql("floor(random() * 6) + 1")) |>
+  mutate(quantity = case_when(
+    quantity == 1 ~ 0,
+    quantity == 2 ~ 1,
+    quantity == 3 ~ 5,
+    quantity == 4 ~ 10,
+    quantity == 5 ~ 30,
+    quantity == 6 ~ 100
+  )) |>
+  compute(name = "drug_exposure")
 cdm
 ```
 
