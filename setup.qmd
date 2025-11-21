@@ -33,20 +33,23 @@ OMOP_DATA_FOLDER = "path/to/my/folder"
   
   6. Check your data folder has been set properly.
   
-```{r}
+```{r, eval=FALSE}
 library(omopgenerics)
 omopDataFolder()
 ```
 
   7. Download *Eunomia* dataset:
   
-```{r}
+```{r, eval=FALSE}
 library(omock)
 downloadMockDataset(datasetName = "GiBleed")
 ```
 
   8. Create a reference to the *Eunomia* dataset:
-  
+
+```{r, echo=FALSE}
+library(omock)
+```
 ```{r}
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")
 cdm
