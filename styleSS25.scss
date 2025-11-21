@@ -23,6 +23,11 @@ $font-family-sans-serif: 'Roboto Slab', serif;
 
 /*-- scss:rules --*/
 
+.scroll-box {
+  max-height: 750px;
+  overflow-y: auto;
+}
+
 .title-slide {
   display: flex;
   flex-direction: column;
