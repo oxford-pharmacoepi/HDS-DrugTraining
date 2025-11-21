@@ -13,7 +13,7 @@ pak::pkg_install(c(
   "CDMConnector", "CodelistGenerator", "duckdb", "DrugUtilisation", 
   "DrugExposureDiagnostics", "CohortConstructor", "omock", "ggplot2", 
   "visOmopResults", "gt", "usethis", "shiny", "here", "bslib", "DT",
-  "shinycssloaders", "shinyWidgets", "plotly", "shinyjs"
+  "shinycssloaders", "shinyWidgets", "plotly", "shinyjs", "CohortSurvival"
 ))
 ```
   4. Set up your environment:
