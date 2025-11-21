@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="dcterms.date" content="2025-11-18">
+  <meta name="dcterms.date" content="2025-11-21">
   <title>Drug Utilisation training – DrugExposureDiagnostics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -190,7 +190,7 @@
     }
   </style>
 <meta property="og:title" content="DrugExposureDiagnostics – Drug Utilisation training">
-<meta property="og:description" content="An overview of GitHub and Codelists">
+<meta property="og:description" content="An R package to assess the quality of drug information in your CDM">
 <meta property="og:site_name" content="Drug Utilisation training">
 </head>
 <body class="quarto-light">
@@ -199,27 +199,244 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">DrugExposureDiagnostics</h1>
-  <p class="subtitle">An overview of GitHub and Codelists</p>
+  <p class="subtitle">An R package to assess the quality of drug information in your CDM</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2025-11-18</p>
+  <p class="date">2025-11-21</p>
 </section>
-<section id="drug-exposure-diagnostics" class="slide level2">
-<h2>Drug Exposure Diagnostics</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DrugExposureDiagnostics)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="drugexposurediagnostics" class="slide level2">
+<h2>DrugExposureDiagnostics</h2>
+
+<img data-src="https://github.com/darwin-eu/DrugExposureDiagnostics/blob/main/man/figures/DrugExposureDiagnostics.png?raw=true" class="quarto-figure quarto-figure-center r-stretch"><p><strong>DrugExposureDiagnostics</strong> is a package to conduct Ingredient specific diagnostics for drug exposure records in the Observational Medical Outcomes Partnership (OMOP) common data model.</p>
+<p><a href="https://darwin-eu.github.io/DrugExposureDiagnostics/" class="uri">https://darwin-eu.github.io/DrugExposureDiagnostics/</a></p>
+</section>
+<section id="main-functions-you-would-need-to-interact-with" class="slide level2">
+<h2>Main functions you would need to interact with</h2>
+<div class="fragment">
+<p>Before running any drug utilisation study, it is paramount to examine the quality of your drug exposure data in your OMOP CDM. To support this, the OHDSI community has developed an open-source R package, DrugExposureDiagnostics.</p>
 </div>
+<div class="fragment">
+<p>There are two functions you often need to interact with in practice:</p>
+<ol type="1">
+<li class="fragment"><p>To run the user-specified checks on drug information <code>executeChecks()</code>.</p></li>
+<li class="fragment"><p>To viewing the results via interactive shiny <code>viewResults()</code>.</p></li>
+</ol>
+</div>
+</section>
+<section id="create-a-cdm-reference" class="slide level2">
+<h2>Create a CDM reference</h2>
+<div class="fragment">
+<p>For this demonstration we will use the <em>GiBleed</em> dataset:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DrugExposureDiagnostics)</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(omock)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">mockCdmFromDataset</span>(<span class="at">datasetName =</span> <span class="st">"GiBleed"</span>, <span class="at">source =</span> <span class="st">"duckdb"</span>)</span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a>cdm<span class="sc">$</span>drug_exposure <span class="ot">&lt;-</span> cdm<span class="sc">$</span>drug_exposure <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quantity =</span> <span class="fu">sql</span>(<span class="st">"floor(random() * 6) + 1"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quantity =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>    quantity <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a>    quantity <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a>    quantity <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
+<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a>    quantity <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">10</span>,</span>
+<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a>    quantity <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="dv">30</span>,</span>
+<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a>    quantity <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="dv">100</span></span>
+<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">compute</span>(<span class="at">name =</span> <span class="st">"drug_exposure"</span>)</span>
+<span id="cb1-18"><a aria-hidden="true" tabindex="-1"></a>cdm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="explore-the-cdm_reference" class="slide level2">
+<h2>Explore the cdm_reference</h2>
+<div class="fragment">
+<p>Feel free to have a quick check on your CDM Drug Exposure table:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>cdm<span class="sc">$</span>drug_exposure <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: ??
+Columns: 23
+Database: DuckDB 1.4.2 [unknown@Linux 6.8.0-1041-azure:R 4.4.1//tmp/Rtmpb9tixv/file418b1cfd0e08.duckdb]
+$ drug_exposure_id             &lt;int&gt; 26318, 60926, 26418, 54785, 47027, 38712,…
+$ person_id                    &lt;int&gt; 573, 1332, 576, 4550, 3895, 3199, 476, 11…
+$ drug_concept_id              &lt;int&gt; 40213160, 40213198, 40213260, 1118084, 40…
+$ drug_exposure_start_date     &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…
+$ drug_exposure_start_datetime &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…
+$ drug_exposure_end_date       &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…
+$ drug_exposure_end_datetime   &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…
+$ verbatim_end_date            &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, NA, …
+$ drug_type_concept_id         &lt;int&gt; 581452, 581452, 581452, 38000177, 3800017…
+$ stop_reason                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ refills                      &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ quantity                     &lt;dbl&gt; 5, 0, 1, 100, 30, 5, 100, 30, 10, 0, 10, …
+$ days_supply                  &lt;int&gt; 0, 0, 0, 0, 0, 14, 0, 0, 0, 60, 14, 28, 7…
+$ sig                          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ route_concept_id             &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ lot_number                   &lt;chr&gt; "0", "0", "0", "0", "0", "0", "0", "0", "…
+$ provider_id                  &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ visit_occurrence_id          &lt;int&gt; 38004, 88400, 38145, 303185, 259023, 2127…
+$ visit_detail_id              &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ drug_source_value            &lt;chr&gt; "10", "133", "121", "00025152531", "85700…
+$ drug_source_concept_id       &lt;int&gt; 40213160, 40213198, 40213260, 44923712, 4…
+$ route_source_value           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ dose_unit_source_value       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="executechecks" class="slide level2">
+<h2><code>executeChecks()</code></h2>
+<div class="fragment">
+<p><code>executeChecks()</code> runs a set of ingredient-level diagnostics on the OMOP CDM drug exposure data and returns a named list of diagnostic results.</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>?<span class="fu">executeChecks</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="imagine-you-have-a-study-centred-around-common-pain-relief-medications." class="slide level2">
+<h2>Imagine you have a study centred around common pain-relief medications.</h2>
+<div class="fragment">
+<p>Suppose you want to investigate a simple and familiar ingredients: <strong>acetaminophen</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>acetaminophenId <span class="ot">&lt;-</span> <span class="dv">1125315</span>L</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="fragment">
+<p>Then you can look into checks including:</p>
+<ol type="1">
+<li class="fragment">their missingness (e.g., missing start date, missing quantity)</li>
+<li class="fragment">their exposure duration</li>
+<li class="fragment">the quantity of the drugs</li>
+<li class="fragment">route (e.g., oral, tablet, topical)</li>
+</ol>
+</div>
+</section>
+<section id="example-code-for-executechecks" class="slide level2">
+<h2>Example code for executeChecks()</h2>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>ingredient_checks <span class="ot">&lt;-</span> <span class="fu">executeChecks</span>(</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">cdm =</span> cdm,</span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">ingredients =</span> acetaminophenId,</span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">checks =</span> <span class="fu">c</span>(<span class="st">"missing"</span>, <span class="st">"exposureDuration"</span>, <span class="st">"route"</span>, <span class="st">"quantity"</span>),</span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">minCellCount =</span> <span class="dv">5</span>, </span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">earliestStartDate =</span> <span class="cn">NULL</span></span>
+<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>ingredient_checks<span class="sc">$</span>missingValuesOverall <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 15
+Columns: 10
+Rowwise: ingredient_concept_id, ingredient
+$ ingredient_concept_id            &lt;int&gt; 1125315, 1125315, 1125315, 1125315, 1…
+$ ingredient                       &lt;chr&gt; "Acetaminophen", "Acetaminophen", "Ac…
+$ variable                         &lt;chr&gt; "n_missing_drug_exposure_id", "n_miss…
+$ n_records                        &lt;int&gt; 10000, 10000, 10000, 10000, 10000, 10…
+$ n_sample                         &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 10…
+$ n_person                         &lt;dbl&gt; 2615, 2615, 2615, 2615, 2615, 2615, 2…
+$ n_records_not_missing_value      &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 95…
+$ n_records_missing_value          &lt;dbl&gt; 0, 0, 0, 0, 0, 436, 0, 0, 0, 10000, 1…
+$ proportion_records_missing_value &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0.000…
+$ result_obscured                  &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FA…</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="what-other-checks-can-you-do" class="slide level2">
+<h2>What other checks can you do?</h2>
+<div class="fragment">
+<p>You may have noticed that from <code>?executeChecks()</code> that these checks can be performed:</p>
+<div class="columns">
+<div class="column">
+<ul>
+<li class="fragment">“missing”<br>
+</li>
+<li class="fragment">“exposureDuration”<br>
+</li>
+<li class="fragment">“type”<br>
+</li>
+<li class="fragment">“route”<br>
+</li>
+<li class="fragment">“sourceConcept”</li>
+<li class="fragment">“daysSupply”</li>
+</ul>
+</div><div class="column">
+<ul>
+<li class="fragment">“verbatimEndDate”<br>
+</li>
+<li class="fragment">“dose”<br>
+</li>
+<li class="fragment">“sig”<br>
+</li>
+<li class="fragment">“quantity”<br>
+</li>
+<li class="fragment">“daysBetween”<br>
+</li>
+<li class="fragment">“diagnosticsSummary”<br>
+</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="visualise-the-results" class="slide level2">
+<h2>Visualise the results</h2>
+<p>You can produce a shiny to visualise the results using <code>viewResults()</code>.</p>
+</section>
+<section id="visualise-the-results-1" class="slide level2">
+<h2>Visualise the results</h2>
+<div class="fragment">
+<p>First you would need to export the results.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">writeResultToDisk</span>(</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">resultList =</span> <span class="fu">c</span>(ingredient_checks),</span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">databaseId =</span> <span class="st">"Eunomia"</span>,</span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">outputFolder =</span> <span class="fu">here</span>(),</span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"DrugExposureDiagnosticsResults"</span></span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now you should see a .zip file in your working directory.</p>
+</div>
+</section>
+<section id="visualise-the-results-2" class="slide level2">
+<h2>Visualise the results</h2>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">viewResults</span>(<span class="at">dataFolder =</span> <span class="fu">here</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This will prompt you to install a couple packages. At the end you have a new directory where you can launch the shiny!</p>
+</div>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<div class="fragment">
+<p>Now it is your turn:</p>
+<ol type="1">
+<li class="fragment">Connect to a real database.</li>
+<li class="fragment">Choose a drug ingredient, e.g., amiodarone (1309944).</li>
+<li class="fragment">Run checks to see their missingness, route, dose, and quantity.</li>
+<li class="fragment">Visualise the results via Shiny.</li>
+</ol>
 
 
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <div style="position: relative; width: 100%;">
 <div style="text-align: center; font-weight: 500;">
-GitHub Training
+Drug Utilisation Training
 </div>
 <div style="position: fixed; top: 20px; right: 20px;">
 <a href="./index.html" style="text-decoration: none;">⬅ Back to Training website</a>

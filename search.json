@@ -1,10 +1,87 @@
 [
   {
-    "objectID": "ded.html#drug-exposure-diagnostics",
-    "href": "ded.html#drug-exposure-diagnostics",
+    "objectID": "ded.html#drugexposurediagnostics",
+    "href": "ded.html#drugexposurediagnostics",
     "title": "DrugExposureDiagnostics",
-    "section": "Drug Exposure Diagnostics",
-    "text": "Drug Exposure Diagnostics\n\nlibrary(DrugExposureDiagnostics)"
+    "section": "DrugExposureDiagnostics",
+    "text": "DrugExposureDiagnostics\n\nDrugExposureDiagnostics is a package to conduct Ingredient specific diagnostics for drug exposure records in the Observational Medical Outcomes Partnership (OMOP) common data model.\nhttps://darwin-eu.github.io/DrugExposureDiagnostics/"
+  },
+  {
+    "objectID": "ded.html#main-functions-you-would-need-to-interact-with",
+    "href": "ded.html#main-functions-you-would-need-to-interact-with",
+    "title": "DrugExposureDiagnostics",
+    "section": "Main functions you would need to interact with",
+    "text": "Main functions you would need to interact with\n\nBefore running any drug utilisation study, it is paramount to examine the quality of your drug exposure data in your OMOP CDM. To support this, the OHDSI community has developed an open-source R package, DrugExposureDiagnostics.\n\n\nThere are two functions you often need to interact with in practice:\n\nTo run the user-specified checks on drug information executeChecks().\nTo viewing the results via interactive shiny viewResults()."
+  },
+  {
+    "objectID": "ded.html#create-a-cdm-reference",
+    "href": "ded.html#create-a-cdm-reference",
+    "title": "DrugExposureDiagnostics",
+    "section": "Create a CDM reference",
+    "text": "Create a CDM reference\n\nFor this demonstration we will use the GiBleed dataset:\n\nlibrary(DrugExposureDiagnostics)\nlibrary(omock)\nlibrary(dplyr)\nlibrary(here)\n\ncdm &lt;- mockCdmFromDataset(datasetName = \"GiBleed\", source = \"duckdb\")\ncdm$drug_exposure &lt;- cdm$drug_exposure |&gt;\n  mutate(quantity = sql(\"floor(random() * 6) + 1\")) |&gt;\n  mutate(quantity = case_when(\n    quantity == 1 ~ 0,\n    quantity == 2 ~ 1,\n    quantity == 3 ~ 5,\n    quantity == 4 ~ 10,\n    quantity == 5 ~ 30,\n    quantity == 6 ~ 100\n  )) |&gt;\n  compute(name = \"drug_exposure\")\ncdm"
+  },
+  {
+    "objectID": "ded.html#explore-the-cdm_reference",
+    "href": "ded.html#explore-the-cdm_reference",
+    "title": "DrugExposureDiagnostics",
+    "section": "Explore the cdm_reference",
+    "text": "Explore the cdm_reference\n\nFeel free to have a quick check on your CDM Drug Exposure table:\n\ncdm$drug_exposure |&gt; \n  glimpse()\n\nRows: ??\nColumns: 23\nDatabase: DuckDB 1.4.2 [unknown@Linux 6.8.0-1041-azure:R 4.4.1//tmp/Rtmpb9tixv/file418b1cfd0e08.duckdb]\n$ drug_exposure_id             &lt;int&gt; 26318, 60926, 26418, 54785, 47027, 38712,…\n$ person_id                    &lt;int&gt; 573, 1332, 576, 4550, 3895, 3199, 476, 11…\n$ drug_concept_id              &lt;int&gt; 40213160, 40213198, 40213260, 1118084, 40…\n$ drug_exposure_start_date     &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_start_datetime &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_end_date       &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_end_datetime   &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ verbatim_end_date            &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, NA, …\n$ drug_type_concept_id         &lt;int&gt; 581452, 581452, 581452, 38000177, 3800017…\n$ stop_reason                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ refills                      &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ quantity                     &lt;dbl&gt; 5, 0, 1, 100, 30, 5, 100, 30, 10, 0, 10, …\n$ days_supply                  &lt;int&gt; 0, 0, 0, 0, 0, 14, 0, 0, 0, 60, 14, 28, 7…\n$ sig                          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ route_concept_id             &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ lot_number                   &lt;chr&gt; \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"…\n$ provider_id                  &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ visit_occurrence_id          &lt;int&gt; 38004, 88400, 38145, 303185, 259023, 2127…\n$ visit_detail_id              &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ drug_source_value            &lt;chr&gt; \"10\", \"133\", \"121\", \"00025152531\", \"85700…\n$ drug_source_concept_id       &lt;int&gt; 40213160, 40213198, 40213260, 44923712, 4…\n$ route_source_value           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ dose_unit_source_value       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…"
+  },
+  {
+    "objectID": "ded.html#executechecks",
+    "href": "ded.html#executechecks",
+    "title": "DrugExposureDiagnostics",
+    "section": "executeChecks()",
+    "text": "executeChecks()\n\nexecuteChecks() runs a set of ingredient-level diagnostics on the OMOP CDM drug exposure data and returns a named list of diagnostic results.\n\n\n\n?executeChecks()"
+  },
+  {
+    "objectID": "ded.html#imagine-you-have-a-study-centred-around-common-pain-relief-medications.",
+    "href": "ded.html#imagine-you-have-a-study-centred-around-common-pain-relief-medications.",
+    "title": "DrugExposureDiagnostics",
+    "section": "Imagine you have a study centred around common pain-relief medications.",
+    "text": "Imagine you have a study centred around common pain-relief medications.\n\nSuppose you want to investigate a simple and familiar ingredients: acetaminophen.\n\nacetaminophenId &lt;- 1125315L\n\n\n\nThen you can look into checks including:\n\ntheir missingness (e.g., missing start date, missing quantity)\ntheir exposure duration\nthe quantity of the drugs\nroute (e.g., oral, tablet, topical)"
+  },
+  {
+    "objectID": "ded.html#example-code-for-executechecks",
+    "href": "ded.html#example-code-for-executechecks",
+    "title": "DrugExposureDiagnostics",
+    "section": "Example code for executeChecks()",
+    "text": "Example code for executeChecks()\n\n\ningredient_checks &lt;- executeChecks(\n  cdm = cdm,\n  ingredients = acetaminophenId,\n  checks = c(\"missing\", \"exposureDuration\", \"route\", \"quantity\"),\n  minCellCount = 5, \n  earliestStartDate = NULL\n)\n\n\n\n\ningredient_checks$missingValuesOverall |&gt;\n  glimpse()\n\nRows: 15\nColumns: 10\nRowwise: ingredient_concept_id, ingredient\n$ ingredient_concept_id            &lt;int&gt; 1125315, 1125315, 1125315, 1125315, 1…\n$ ingredient                       &lt;chr&gt; \"Acetaminophen\", \"Acetaminophen\", \"Ac…\n$ variable                         &lt;chr&gt; \"n_missing_drug_exposure_id\", \"n_miss…\n$ n_records                        &lt;int&gt; 10000, 10000, 10000, 10000, 10000, 10…\n$ n_sample                         &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 10…\n$ n_person                         &lt;dbl&gt; 2615, 2615, 2615, 2615, 2615, 2615, 2…\n$ n_records_not_missing_value      &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 95…\n$ n_records_missing_value          &lt;dbl&gt; 0, 0, 0, 0, 0, 436, 0, 0, 0, 10000, 1…\n$ proportion_records_missing_value &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0.000…\n$ result_obscured                  &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FA…"
+  },
+  {
+    "objectID": "ded.html#what-other-checks-can-you-do",
+    "href": "ded.html#what-other-checks-can-you-do",
+    "title": "DrugExposureDiagnostics",
+    "section": "What other checks can you do?",
+    "text": "What other checks can you do?\n\nYou may have noticed that from ?executeChecks() that these checks can be performed:\n\n\n\n“missing”\n\n“exposureDuration”\n\n“type”\n\n“route”\n\n“sourceConcept”\n“daysSupply”\n\n\n\n“verbatimEndDate”\n\n“dose”\n\n“sig”\n\n“quantity”\n\n“daysBetween”\n\n“diagnosticsSummary”"
+  },
+  {
+    "objectID": "ded.html#visualise-the-results",
+    "href": "ded.html#visualise-the-results",
+    "title": "DrugExposureDiagnostics",
+    "section": "Visualise the results",
+    "text": "Visualise the results\nYou can produce a shiny to visualise the results using viewResults()."
+  },
+  {
+    "objectID": "ded.html#visualise-the-results-1",
+    "href": "ded.html#visualise-the-results-1",
+    "title": "DrugExposureDiagnostics",
+    "section": "Visualise the results",
+    "text": "Visualise the results\n\nFirst you would need to export the results.\n\nwriteResultToDisk(\n  resultList = c(ingredient_checks),\n  databaseId = \"Eunomia\",\n  outputFolder = here(),\n  filename = \"DrugExposureDiagnosticsResults\"\n)\n\nNow you should see a .zip file in your working directory."
+  },
+  {
+    "objectID": "ded.html#visualise-the-results-2",
+    "href": "ded.html#visualise-the-results-2",
+    "title": "DrugExposureDiagnostics",
+    "section": "Visualise the results",
+    "text": "Visualise the results\n\n\nviewResults(dataFolder = here())\n\nThis will prompt you to install a couple packages. At the end you have a new directory where you can launch the shiny!"
+  },
+  {
+    "objectID": "ded.html#exercise",
+    "href": "ded.html#exercise",
+    "title": "DrugExposureDiagnostics",
+    "section": "Exercise",
+    "text": "Exercise\n\nNow it is your turn:\n\nConnect to a real database.\nChoose a drug ingredient, e.g., amiodarone (1309944).\nRun checks to see their missingness, route, dose, and quantity.\nVisualise the results via Shiny."
   },
   {
     "objectID": "dus.html#drugutilisation",
