@@ -25,7 +25,7 @@
     "href": "ded.html#explore-the-cdm_reference",
     "title": "DrugExposureDiagnostics",
     "section": "Explore the cdm_reference",
-    "text": "Explore the cdm_reference\n\nFeel free to have a quick check on your CDM Drug Exposure table:\n\ncdm$drug_exposure |&gt; \n  glimpse()\n\nRows: ??\nColumns: 23\nDatabase: DuckDB 1.4.2 [unknown@Linux 6.8.0-1041-azure:R 4.4.1//tmp/Rtmpb9tixv/file418b1cfd0e08.duckdb]\n$ drug_exposure_id             &lt;int&gt; 26318, 60926, 26418, 54785, 47027, 38712,…\n$ person_id                    &lt;int&gt; 573, 1332, 576, 4550, 3895, 3199, 476, 11…\n$ drug_concept_id              &lt;int&gt; 40213160, 40213198, 40213260, 1118084, 40…\n$ drug_exposure_start_date     &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_start_datetime &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_end_date       &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_end_datetime   &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ verbatim_end_date            &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, NA, …\n$ drug_type_concept_id         &lt;int&gt; 581452, 581452, 581452, 38000177, 3800017…\n$ stop_reason                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ refills                      &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ quantity                     &lt;dbl&gt; 5, 0, 1, 100, 30, 5, 100, 30, 10, 0, 10, …\n$ days_supply                  &lt;int&gt; 0, 0, 0, 0, 0, 14, 0, 0, 0, 60, 14, 28, 7…\n$ sig                          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ route_concept_id             &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ lot_number                   &lt;chr&gt; \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"…\n$ provider_id                  &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ visit_occurrence_id          &lt;int&gt; 38004, 88400, 38145, 303185, 259023, 2127…\n$ visit_detail_id              &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ drug_source_value            &lt;chr&gt; \"10\", \"133\", \"121\", \"00025152531\", \"85700…\n$ drug_source_concept_id       &lt;int&gt; 40213160, 40213198, 40213260, 44923712, 4…\n$ route_source_value           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ dose_unit_source_value       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…"
+    "text": "Explore the cdm_reference\n\nFeel free to have a quick check on your CDM Drug Exposure table:\n\ncdm$drug_exposure |&gt; \n  glimpse()\n\nRows: ??\nColumns: 23\nDatabase: DuckDB 1.4.2 [unknown@Linux 6.8.0-1041-azure:R 4.4.1//tmp/RtmpRqfRAP/file1b4d7c75894b.duckdb]\n$ drug_exposure_id             &lt;int&gt; 26318, 60926, 26418, 54785, 47027, 38712,…\n$ person_id                    &lt;int&gt; 573, 1332, 576, 4550, 3895, 3199, 476, 11…\n$ drug_concept_id              &lt;int&gt; 40213160, 40213198, 40213260, 1118084, 40…\n$ drug_exposure_start_date     &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_start_datetime &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_end_date       &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ drug_exposure_end_datetime   &lt;dttm&gt; 1960-04-09, 2010-10-06, 2017-10-25, 2000…\n$ verbatim_end_date            &lt;date&gt; 1960-04-09, 2010-10-06, 2017-10-25, NA, …\n$ drug_type_concept_id         &lt;int&gt; 581452, 581452, 581452, 38000177, 3800017…\n$ stop_reason                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ refills                      &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ quantity                     &lt;dbl&gt; 5, 1, 100, 0, 1, 5, 10, 30, 100, 0, 1, 5,…\n$ days_supply                  &lt;int&gt; 0, 0, 0, 0, 0, 14, 0, 0, 0, 60, 14, 28, 7…\n$ sig                          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ route_concept_id             &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ lot_number                   &lt;chr&gt; \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"…\n$ provider_id                  &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ visit_occurrence_id          &lt;int&gt; 38004, 88400, 38145, 303185, 259023, 2127…\n$ visit_detail_id              &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ drug_source_value            &lt;chr&gt; \"10\", \"133\", \"121\", \"00025152531\", \"85700…\n$ drug_source_concept_id       &lt;int&gt; 40213160, 40213198, 40213260, 44923712, 4…\n$ route_source_value           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ dose_unit_source_value       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…"
   },
   {
     "objectID": "ded.html#executechecks",
@@ -46,7 +46,7 @@
     "href": "ded.html#example-code-for-executechecks",
     "title": "DrugExposureDiagnostics",
     "section": "Example code for executeChecks()",
-    "text": "Example code for executeChecks()\n\n\ningredient_checks &lt;- executeChecks(\n  cdm = cdm,\n  ingredients = acetaminophenId,\n  checks = c(\"missing\", \"exposureDuration\", \"route\", \"quantity\"),\n  minCellCount = 5, \n  earliestStartDate = NULL\n)\n\n\n\n\ningredient_checks$missingValuesOverall |&gt;\n  glimpse()\n\nRows: 15\nColumns: 10\nRowwise: ingredient_concept_id, ingredient\n$ ingredient_concept_id            &lt;int&gt; 1125315, 1125315, 1125315, 1125315, 1…\n$ ingredient                       &lt;chr&gt; \"Acetaminophen\", \"Acetaminophen\", \"Ac…\n$ variable                         &lt;chr&gt; \"n_missing_drug_exposure_id\", \"n_miss…\n$ n_records                        &lt;int&gt; 10000, 10000, 10000, 10000, 10000, 10…\n$ n_sample                         &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 10…\n$ n_person                         &lt;dbl&gt; 2615, 2615, 2615, 2615, 2615, 2615, 2…\n$ n_records_not_missing_value      &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 95…\n$ n_records_missing_value          &lt;dbl&gt; 0, 0, 0, 0, 0, 436, 0, 0, 0, 10000, 1…\n$ proportion_records_missing_value &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0.000…\n$ result_obscured                  &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FA…"
+    "text": "Example code for executeChecks()\n\n\ningredient_checks &lt;- executeChecks(\n  cdm = cdm,\n  ingredients = acetaminophenId,\n  checks = c(\"missing\", \"exposureDuration\", \"route\", \"quantity\"),\n  minCellCount = 5, \n  earliestStartDate = NULL\n)\n\n\n\n\ningredient_checks$missingValuesOverall |&gt;\n  glimpse()\n\nRows: 15\nColumns: 10\nRowwise: ingredient_concept_id, ingredient\n$ ingredient_concept_id            &lt;int&gt; 1125315, 1125315, 1125315, 1125315, 1…\n$ ingredient                       &lt;chr&gt; \"Acetaminophen\", \"Acetaminophen\", \"Ac…\n$ variable                         &lt;chr&gt; \"n_missing_drug_exposure_id\", \"n_miss…\n$ n_records                        &lt;int&gt; 10000, 10000, 10000, 10000, 10000, 10…\n$ n_sample                         &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 10…\n$ n_person                         &lt;dbl&gt; 2616, 2616, 2616, 2616, 2616, 2616, 2…\n$ n_records_not_missing_value      &lt;dbl&gt; 10000, 10000, 10000, 10000, 10000, 95…\n$ n_records_missing_value          &lt;dbl&gt; 0, 0, 0, 0, 0, 449, 0, 0, 0, 10000, 1…\n$ proportion_records_missing_value &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0.000…\n$ result_obscured                  &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FA…"
   },
   {
     "objectID": "ded.html#what-other-checks-can-you-do",
@@ -84,10 +84,360 @@
     "text": "Exercise\n\nNow it is your turn:\n\nConnect to a real database.\nChoose a drug ingredient, e.g., amiodarone (1309944).\nRun checks to see their missingness, route, dose, and quantity.\nVisualise the results via Shiny."
   },
   {
+    "objectID": "dus.html#introduction",
+    "href": "dus.html#introduction",
+    "title": "DrugUtilisation",
+    "section": "Introduction",
+    "text": "Introduction\nDrug Utilisation Studies (DUS) were defined by the World Health Organization as studying the marketing, distribution, prescription, and use of medicinal products in a society, with special emphasis on the resulting medical and socioeconomic consequences (WHO, 2003).\n\nThis package aims to standardise and provide the tools to conduct Drug Utilisation studies as of the Darwin-EU Catalogue of Standard Analytics."
+  },
+  {
+    "objectID": "dus.html#the-package",
+    "href": "dus.html#the-package",
+    "title": "DrugUtilisation",
+    "section": "The package",
+    "text": "The package\n\n\ninstall.packages(\"DrugUtilisation\")\n\n\nv1.0.5 on cran.\npackage website\nReport an issue/Feature request"
+  },
+  {
+    "objectID": "dus.html#create-a-reference-to-a-cdm-object",
+    "href": "dus.html#create-a-reference-to-a-cdm-object",
+    "title": "DrugUtilisation",
+    "section": "Create a reference to a cdm object",
+    "text": "Create a reference to a cdm object\nFor this example we are going to use the GiBleed synthetic test database:\n\nlibrary(omock)\nlibrary(duckdb)\nlibrary(CDMConnector)\nlibrary(dplyr)\nlibrary(CodelistGenerator)\nlibrary(DrugUtilisation)\nlibrary(CohortConstructor)\nlibrary(PatientProfiles)\nlibrary(ggplot2)\nlibrary(clock)\nlibrary(omopgenerics)\nlibrary(CohortSurvival)\n\ncdm &lt;- mockCdmFromDataset(datasetName = \"GiBleed\", source = \"duckdb\")\ncdm$drug_exposure &lt;- cdm$drug_exposure |&gt;\n  mutate(quantity = sql(\"floor(random() * 6) + 1\")) |&gt;\n  mutate(quantity = case_when(\n    quantity == 1 ~ 0,\n    quantity == 2 ~ 1,\n    quantity == 3 ~ 5,\n    quantity == 4 ~ 10,\n    quantity == 5 ~ 30,\n    quantity == 6 ~ 100\n  )) |&gt;\n  compute(name = \"drug_exposure\")"
+  },
+  {
+    "objectID": "dus.html#generate-a-drug-cohort",
+    "href": "dus.html#generate-a-drug-cohort",
+    "title": "DrugUtilisation",
+    "section": "Generate a drug cohort",
+    "text": "Generate a drug cohort\nFor this example we are going to use all records of acteaminophen:\n\n\ncodelist &lt;- getDrugIngredientCodes(cdm = cdm, name = \"acetaminophen\", nameStyle = \"{concept_name}\")\n\n\ncdm$dus_cohort &lt;- conceptCohort(\n  cdm = cdm,\n  name = \"dus_cohort\",\n  conceptSet = codelist\n)\n\n\n\nThe results is the cdm object with the new cohort instantiated.\n\n\n\ncdm\n\n\n\n\n── # OMOP CDM reference (duckdb) of GiBleed ────────────────────────────────────────────────────────────────────────────\n\n\n• omop tables: care_site, cdm_source, concept, concept_ancestor, concept_class, concept_relationship, concept_synonym,\ncondition_era, condition_occurrence, cost, death, device_exposure, domain, dose_era, drug_era, drug_exposure,\ndrug_strength, fact_relationship, location, measurement, metadata, note, note_nlp, observation, observation_period,\npayer_plan_period, person, procedure_occurrence, provider, relationship, source_to_concept_map, specimen, visit_detail,\nvisit_occurrence, vocabulary\n\n\n• cohort tables: dus_cohort\n\n\n• achilles tables: -\n\n\n• other tables: -"
+  },
+  {
+    "objectID": "dus.html#cohort-objects",
+    "href": "dus.html#cohort-objects",
+    "title": "DrugUtilisation",
+    "section": "Cohort objects",
+    "text": "Cohort objects\nThe cohort objects have some attributes:\n\nclass(cdm$dus_cohort)\n\n[1] \"cohort_table\"          \"cdm_table\"             \"GeneratedCohortSet\"    \"tbl_duckdb_connection\"\n[5] \"tbl_dbi\"               \"tbl_sql\"               \"tbl_lazy\"              \"tbl\"                  \n\n\n\n\nnames(attributes(cdm$dus_cohort))\n\n[1] \"names\"            \"class\"            \"tbl_source\"       \"tbl_name\"         \"cohort_set\"       \"cohort_attrition\"\n[7] \"cohort_codelist\"  \"cdm_reference\"   \n\n\n\n\n\nSettings\nCounts\nAttrition\nCodelist"
+  },
+  {
+    "objectID": "dus.html#cohort-attributes",
+    "href": "dus.html#cohort-attributes",
+    "title": "DrugUtilisation",
+    "section": "Cohort attributes",
+    "text": "Cohort attributes\nSettings:\n\nsettings(cdm$dus_cohort)\n\n# A tibble: 1 × 4\n  cohort_definition_id cohort_name   cdm_version vocabulary_version\n                 &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;             \n1                    1 acetaminophen 5.3         v5.0 18-JAN-19    \n\n\n\nCohort counts:\n\ncohortCount(cdm$dus_cohort)\n\n# A tibble: 1 × 3\n  cohort_definition_id number_records number_subjects\n                 &lt;int&gt;          &lt;int&gt;           &lt;int&gt;\n1                    1          13908            2679"
+  },
+  {
+    "objectID": "dus.html#cohort-attributes-1",
+    "href": "dus.html#cohort-attributes-1",
+    "title": "DrugUtilisation",
+    "section": "Cohort attributes",
+    "text": "Cohort attributes\nCohort attrition:\n\nattrition(cdm$dus_cohort)\n\n# A tibble: 4 × 7\n  cohort_definition_id number_records number_subjects reason_id reason                excluded_records excluded_subjects\n                 &lt;int&gt;          &lt;int&gt;           &lt;int&gt;     &lt;int&gt; &lt;chr&gt;                            &lt;int&gt;             &lt;int&gt;\n1                    1          14205            2679         1 Initial qualifying e…                0                 0\n2                    1          14205            2679         2 Record in observation                0                 0\n3                    1          14205            2679         3 Not missing record d…                0                 0\n4                    1          13908            2679         4 Merge overlapping re…              297                 0\n\n\n\nCohort codelist:\n\ncohortCodelist(cdm$dus_cohort, cohortId = 1)\n\n\n- acetaminophen (7 codes)"
+  },
+  {
+    "objectID": "dus.html#gapera-parameter",
+    "href": "dus.html#gapera-parameter",
+    "title": "DrugUtilisation",
+    "section": "gapEra parameter",
+    "text": "gapEra parameter\ngapEra parameter can be used to concatenate different records.\n\nNumber of days between two continuous exposures to be considered in the same era. Records that have fewer days between them than this gap will be concatenated into the same cohort record."
+  },
+  {
+    "objectID": "dus.html#gapera-parameter-1",
+    "href": "dus.html#gapera-parameter-1",
+    "title": "DrugUtilisation",
+    "section": "gapEra parameter",
+    "text": "gapEra parameter"
+  },
+  {
+    "objectID": "dus.html#generate-a-drug-cohort-1",
+    "href": "dus.html#generate-a-drug-cohort-1",
+    "title": "DrugUtilisation",
+    "section": "Generate a drug cohort",
+    "text": "Generate a drug cohort\n\n\ncohortCount(cdm$dus_cohort)\n\n# A tibble: 1 × 3\n  cohort_definition_id number_records number_subjects\n                 &lt;int&gt;          &lt;int&gt;           &lt;int&gt;\n1                    1          13908            2679\n\n\n\n\n\ncdm$dus_cohort &lt;- cdm$dus_cohort |&gt;\n  collapseCohorts(gap = 30)\n\n\n\n\ncohortCount(cdm$dus_cohort)\n\n# A tibble: 1 × 3\n  cohort_definition_id number_records number_subjects\n                 &lt;int&gt;          &lt;int&gt;           &lt;int&gt;\n1                    1          13860            2679\n\n\n\n\n\nattrition(cdm$dus_cohort)\n\n# A tibble: 5 × 7\n  cohort_definition_id number_records number_subjects reason_id reason                excluded_records excluded_subjects\n                 &lt;int&gt;          &lt;int&gt;           &lt;int&gt;     &lt;int&gt; &lt;chr&gt;                            &lt;int&gt;             &lt;int&gt;\n1                    1          14205            2679         1 Initial qualifying e…                0                 0\n2                    1          14205            2679         2 Record in observation                0                 0\n3                    1          14205            2679         3 Not missing record d…                0                 0\n4                    1          13908            2679         4 Merge overlapping re…              297                 0\n5                    1          13860            2679         5 Collapse cohort with…               48                 0"
+  },
+  {
+    "objectID": "dus.html#inclusion-criteria",
+    "href": "dus.html#inclusion-criteria",
+    "title": "DrugUtilisation",
+    "section": "Inclusion criteria",
+    "text": "Inclusion criteria\nFour functions to add inclusion criteria to our cohort:\n\nWashout requirePriorDrugWashout() (requireConceptIntersect)\nFirst observation requireIsFirstDrugEntry() (requireIsFirstEntry)\nPrior observation requireObservationBeforeDrug() (requirePriorObservation)\nDate range requireDrugInDateRange() (requireInDateRange)"
+  },
+  {
+    "objectID": "dus.html#important-considerations",
+    "href": "dus.html#important-considerations",
+    "title": "DrugUtilisation",
+    "section": "Important considerations",
+    "text": "Important considerations\nNot all inclusion criteria are commutable operations (A + B != B + A):\nNot commutable:\n\nprior washout + prior observation != prior observation + prior washout\nprior washout + first != first + prior washout\nprior washout + date range != date range + prior washout\nfirst + prior observation != prior observation + first\nfirst + date range != date range + first\n\n\nCommutable:\n\ndate range + prior observation == prior observation + date range"
+  },
+  {
+    "objectID": "dus.html#recommended-order",
+    "href": "dus.html#recommended-order",
+    "title": "DrugUtilisation",
+    "section": "Recommended order",
+    "text": "Recommended order\nHaving all this into account the recommended order to apply criteria would be:\n\nRequire a prior drug washout or require first drug entry (particular case).\nRequire a prior observation before the drug episode.\nRequire the drugs to be in a certain date range."
+  },
+  {
+    "objectID": "dus.html#vignette-to-create-cohorts",
+    "href": "dus.html#vignette-to-create-cohorts",
+    "title": "DrugUtilisation",
+    "section": "Vignette to create cohorts",
+    "text": "Vignette to create cohorts\nhttps://darwin-eu-dev.github.io/DrugUtilisation/articles/create_cohorts.html"
+  },
+  {
+    "objectID": "dus.html#your-turn",
+    "href": "dus.html#your-turn",
+    "title": "DrugUtilisation",
+    "section": "Your turn",
+    "text": "Your turn\nCan you create a cohort with all the records of ‘simvastatin’ concatenating records separated by 90 days or less and the following inclusion criteria:\n\nFirst record ever\nAt least 365 days of prior observation\nCohort start date between ‘2010-01-01’ and ‘2021-12-31’.\n\n\n\n# A tibble: 1 × 3\n  cohort_definition_id number_records number_subjects\n                 &lt;int&gt;          &lt;int&gt;           &lt;int&gt;\n1                    1             57              57\n\n\n\n\n💡 Click to see solution\n\n\ncodelist &lt;- getDrugIngredientCodes(cdm = cdm, name = \"simvastatin\", nameStyle = \"{concept_name}\")\ncdm$simvastatin_cohort &lt;- conceptCohort(\n  cdm = cdm, \n  conceptSet = codelist, \n  name = \"simvastatin_cohort\"\n) |&gt;\n  collapseCohorts(gap = 90) |&gt;\n  requireIsFirstEntry() |&gt;\n  requirePriorObservation(minPriorObservation = 365) |&gt;\n  requireInDateRange(dateRange = as.Date(c('2010-01-01', '2021-12-31')))\ncohortCount(cdm$simvastatin_cohort)\n\n# A tibble: 1 × 3\n  cohort_definition_id number_records number_subjects\n                 &lt;int&gt;          &lt;int&gt;           &lt;int&gt;\n1                    1             57              57"
+  },
+  {
+    "objectID": "dus.html#drug-usage",
+    "href": "dus.html#drug-usage",
+    "title": "DrugUtilisation",
+    "section": "Drug usage",
+    "text": "Drug usage\n\n\nresult &lt;- cdm$dus_cohort |&gt;\n  summariseDrugUtilisation(\n    ingredientConceptId = 1125315L, \n    indexDate = \"cohort_start_date\",\n    censorDate = \"cohort_end_date\", \n    restrictIncident = TRUE, \n    gapEra = 30, \n    numberExposures = TRUE, \n    numberEras = TRUE,\n    daysExposed = TRUE,\n    daysPrescribed = TRUE,\n    timeToExposure = FALSE, \n    initialQuantity = TRUE, \n    cumulativeQuantity = TRUE, \n    initialDailyDose = TRUE, \n    cumulativeDose = TRUE,\n    estimates = c(\"q25\", \"median\", \"q75\")\n  )"
+  },
+  {
+    "objectID": "dus.html#drug-usage-1",
+    "href": "dus.html#drug-usage-1",
+    "title": "DrugUtilisation",
+    "section": "Drug usage",
+    "text": "Drug usage\n\nresult |&gt;\n  suppress(minCellCount = 5) |&gt;\n  tableDrugUtilisation()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept set\nIngredient\nVariable name\nEstimate name\n\nCDM name\n\n\n\nGiBleed\n\n\n\n\nacetaminophen\n\n\noverall\noverall\nnumber records\nN\n13,860\n\n\n\n\nnumber subjects\nN\n2,679\n\n\ningredient_1125315_descendants\noverall\nnumber exposures\nMedian (Q25 - Q75)\n1 (1 - 1)\n\n\n\n\ncumulative quantity\nMedian (Q25 - Q75)\n8.50 (1.00 - 30.00)\n\n\n\n\ninitial quantity\nMedian (Q25 - Q75)\n5.00 (1.00 - 30.00)\n\n\n\n\ninitial exposure duration\nMedian (Q25 - Q75)\n15 (8 - 15)\n\n\n\n\nnumber eras\nMedian (Q25 - Q75)\n1 (1 - 1)\n\n\n\n\ndays exposed\nMedian (Q25 - Q75)\n15 (8 - 15)\n\n\n\n\ndays prescribed\nMedian (Q25 - Q75)\n15 (8 - 15)\n\n\n\nAcetaminophen\ncumulative dose milligram\nMedian (Q25 - Q75)\n1,625.00 (217.00 - 9,750.00)\n\n\n\n\ninitial daily dose milligram\nMedian (Q25 - Q75)\n108.33 (13.56 - 443.18)"
+  },
+  {
+    "objectID": "dus.html#indications",
+    "href": "dus.html#indications",
+    "title": "DrugUtilisation",
+    "section": "Indications",
+    "text": "Indications\nsummariseIndication():\n\nTo summarise mutually exclusive indications.\nDefine a window respect to the ‘cohort_start_date’.\nIndications must be instantiated beforehand as cohorts.\nUnknown indication (check a table to see if there is a record)."
+  },
+  {
+    "objectID": "dus.html#indications-1",
+    "href": "dus.html#indications-1",
+    "title": "DrugUtilisation",
+    "section": "Indications",
+    "text": "Indications\nLet’s instantiate the cohorts of interest:\n\ncdm$indications &lt;- conceptCohort(\n  cdm = cdm,\n  conceptSet = list(\n    arteriosclerosis = 317576, \n    myocardial_infarction = 4329847, \n    pain = getCandidateCodes(cdm = cdm, keywords = \"pain\")$concept_id\n  ),\n  name = \"indications\"\n)"
+  },
+  {
+    "objectID": "dus.html#indciations",
+    "href": "dus.html#indciations",
+    "title": "DrugUtilisation",
+    "section": "Indciations",
+    "text": "Indciations\n\nresult &lt;- cdm$dus_cohort |&gt;\n  summariseIndication(\n    indicationCohortName = \"indications\", \n    indicationWindow = list(c(0, 0), c(-30, 7)), \n    unknownIndicationTable = \"condition_occurrence\"\n  )\nresult |&gt;\n  glimpse()\n\nRows: 40\nColumns: 13\n$ result_id        &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ cdm_name         &lt;chr&gt; \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBl…\n$ group_name       &lt;chr&gt; \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"co…\n$ group_level      &lt;chr&gt; \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetami…\n$ strata_name      &lt;chr&gt; \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"over…\n$ strata_level     &lt;chr&gt; \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"over…\n$ variable_name    &lt;chr&gt; \"Indication on index date\", \"Indication on index date\", \"Indication on index date\", \"Indicati…\n$ variable_level   &lt;chr&gt; \"arteriosclerosis\", \"arteriosclerosis\", \"myocardial_infarction\", \"myocardial_infarction\", \"pa…\n$ estimate_name    &lt;chr&gt; \"count\", \"percentage\", \"count\", \"percentage\", \"count\", \"percentage\", \"count\", \"percentage\", \"…\n$ estimate_type    &lt;chr&gt; \"integer\", \"percentage\", \"integer\", \"percentage\", \"integer\", \"percentage\", \"integer\", \"percen…\n$ estimate_value   &lt;chr&gt; \"0\", \"0\", \"64\", \"0.461760461760462\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"13633…\n$ additional_name  &lt;chr&gt; \"window_name\", \"window_name\", \"window_name\", \"window_name\", \"window_name\", \"window_name\", \"wi…\n$ additional_level &lt;chr&gt; \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 …"
+  },
+  {
+    "objectID": "dus.html#indications-2",
+    "href": "dus.html#indications-2",
+    "title": "DrugUtilisation",
+    "section": "Indications",
+    "text": "Indications\n\n\nresult |&gt;\n  suppress() |&gt;\n  tableIndication()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCDM name\n\n\n\n\n\nGiBleed\n\n\n\nIndication\nEstimate name\n\nCohort name\n\n\n\nacetaminophen\n\n\n\n\nIndication on index date\n\n\narteriosclerosis\nN (%)\n0 (0.00 %)\n\n\nmyocardial_infarction\nN (%)\n64 (0.46 %)\n\n\npain\nN (%)\n0 (0.00 %)\n\n\narteriosclerosis and myocardial_infarction\nN (%)\n0 (0.00 %)\n\n\narteriosclerosis and pain\nN (%)\n0 (0.00 %)\n\n\nmyocardial_infarction and pain\nN (%)\n0 (0.00 %)\n\n\narteriosclerosis and myocardial_infarction and pain\nN (%)\n0 (0.00 %)\n\n\nunknown\nN (%)\n13,633 (98.36 %)\n\n\nnone\nN (%)\n163 (1.18 %)\n\n\nnot in observation\nN (%)\n0 (0.00 %)\n\n\nIndication from 30 days before to 7 days after the index date\n\n\narteriosclerosis\nN (%)\n5 (0.04 %)\n\n\nmyocardial_infarction\nN (%)\n64 (0.46 %)\n\n\npain\nN (%)\n0 (0.00 %)\n\n\narteriosclerosis and myocardial_infarction\nN (%)\n0 (0.00 %)\n\n\narteriosclerosis and pain\nN (%)\n0 (0.00 %)\n\n\nmyocardial_infarction and pain\nN (%)\n0 (0.00 %)\n\n\narteriosclerosis and myocardial_infarction and pain\nN (%)\n0 (0.00 %)\n\n\nunknown\nN (%)\n13,784 (99.45 %)\n\n\nnone\nN (%)\n7 (0.05 %)\n\n\nnot in observation\nN (%)\n0 (0.00 %)"
+  },
+  {
+    "objectID": "dus.html#indications-3",
+    "href": "dus.html#indications-3",
+    "title": "DrugUtilisation",
+    "section": "Indications",
+    "text": "Indications\n\nplotIndication(result)"
+  },
+  {
+    "objectID": "dus.html#indications-4",
+    "href": "dus.html#indications-4",
+    "title": "DrugUtilisation",
+    "section": "Indications",
+    "text": "Indications\nOutput of ploting functions are ggplot2 objects.\n\n\nplotIndication(result) +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "dus.html#indications-5",
+    "href": "dus.html#indications-5",
+    "title": "DrugUtilisation",
+    "section": "Indications",
+    "text": "Indications\nCurrently considering to add support for plotly.\n\n\nlibrary(plotly)\nplotIndication(result) |&gt;\n  ggplotly()"
+  },
+  {
+    "objectID": "dus.html#indications-new-plot",
+    "href": "dus.html#indications-new-plot",
+    "title": "DrugUtilisation",
+    "section": "Indications (new plot)",
+    "text": "Indications (new plot)\nLet’s say we conducted the analysis stratified by sex:\n\nresult &lt;- cdm$dus_cohort |&gt;\n  addSex() |&gt;\n  summariseIndication(\n    strata = \"sex\",\n    indicationCohortName = \"indications\", \n    indicationWindow = list(c(0, 0), c(-30, 7)), \n    unknownIndicationTable = \"condition_occurrence\"\n  )\nresult |&gt;\n  glimpse()\n\nRows: 120\nColumns: 13\n$ result_id        &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ cdm_name         &lt;chr&gt; \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBl…\n$ group_name       &lt;chr&gt; \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"co…\n$ group_level      &lt;chr&gt; \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetami…\n$ strata_name      &lt;chr&gt; \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"over…\n$ strata_level     &lt;chr&gt; \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"over…\n$ variable_name    &lt;chr&gt; \"Indication on index date\", \"Indication on index date\", \"Indication on index date\", \"Indicati…\n$ variable_level   &lt;chr&gt; \"arteriosclerosis\", \"arteriosclerosis\", \"myocardial_infarction\", \"myocardial_infarction\", \"pa…\n$ estimate_name    &lt;chr&gt; \"count\", \"percentage\", \"count\", \"percentage\", \"count\", \"percentage\", \"count\", \"percentage\", \"…\n$ estimate_type    &lt;chr&gt; \"integer\", \"percentage\", \"integer\", \"percentage\", \"integer\", \"percentage\", \"integer\", \"percen…\n$ estimate_value   &lt;chr&gt; \"0\", \"0\", \"64\", \"0.461760461760462\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"13633…\n$ additional_name  &lt;chr&gt; \"window_name\", \"window_name\", \"window_name\", \"window_name\", \"window_name\", \"window_name\", \"wi…\n$ additional_level &lt;chr&gt; \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 to 0\", \"0 …"
+  },
+  {
+    "objectID": "dus.html#indications-new-plot-1",
+    "href": "dus.html#indications-new-plot-1",
+    "title": "DrugUtilisation",
+    "section": "Indications (new plot)",
+    "text": "Indications (new plot)\n\nplotIndication(result = result, x = \"sex\")"
+  },
+  {
+    "objectID": "dus.html#indications-new-plot-2",
+    "href": "dus.html#indications-new-plot-2",
+    "title": "DrugUtilisation",
+    "section": "Indications (new plot)",
+    "text": "Indications (new plot)\n\nYou can do the same plot by year:\n\n\n\nresult &lt;- cdm$dus_cohort |&gt;\n  requireDrugInDateRange(\n    name = \"new_cohort\",\n    dateRange = as.Date(c(\"1990-01-01\", \"1999-12-31\"))\n  ) |&gt;\n  mutate(year = get_year(cohort_start_date)) |&gt;\n  summariseIndication(\n    strata = \"year\",\n    indicationCohortName = \"indications\", \n    indicationWindow = c(-Inf, 0), \n    unknownIndicationTable = \"condition_occurrence\"\n  )\nresult |&gt;\n  filterStrata(year != \"overall\") |&gt;\n  plotIndication(x = \"year\")"
+  },
+  {
+    "objectID": "dus.html#indications-new-plot-3",
+    "href": "dus.html#indications-new-plot-3",
+    "title": "DrugUtilisation",
+    "section": "Indications (new plot)",
+    "text": "Indications (new plot)"
+  },
+  {
+    "objectID": "dus.html#treatment-persistence",
+    "href": "dus.html#treatment-persistence",
+    "title": "DrugUtilisation",
+    "section": "Treatment persistence",
+    "text": "Treatment persistence\nTo analyse treatment persistence and adherence there are two standard pipelines:\n\nSurvival analysis (implemented in the CohortSurvival package)\nProportion of patients covered"
+  },
+  {
+    "objectID": "dus.html#survival-analysis",
+    "href": "dus.html#survival-analysis",
+    "title": "DrugUtilisation",
+    "section": "Survival Analysis",
+    "text": "Survival Analysis\n\nsurvivalResults &lt;- estimateSingleEventSurvival(\n  cdm = cdm, \n  targetCohortTable = \"dus_cohort\", \n  outcomeCohortTable = \"dus_cohort\", \n  outcomeDateVariable = \"cohort_end_date\", \n  followUpDays = 90\n)"
+  },
+  {
+    "objectID": "dus.html#survival-analysis-1",
+    "href": "dus.html#survival-analysis-1",
+    "title": "DrugUtilisation",
+    "section": "Survival analysis",
+    "text": "Survival analysis\n\nplotSurvival(result = survivalResults)"
+  },
+  {
+    "objectID": "dus.html#proportion-of-patients-covered",
+    "href": "dus.html#proportion-of-patients-covered",
+    "title": "DrugUtilisation",
+    "section": "Proportion of patients covered",
+    "text": "Proportion of patients covered\nProportion of treated individuals between index date and followUpDays. Percentages will be reported daily.\n\nresult &lt;- cdm$dus_cohort |&gt;\n  summariseProportionOfPatientsCovered(followUpDays = 90)"
+  },
+  {
+    "objectID": "dus.html#proportion-of-patients-covered-1",
+    "href": "dus.html#proportion-of-patients-covered-1",
+    "title": "DrugUtilisation",
+    "section": "Proportion of patients covered",
+    "text": "Proportion of patients covered\n\n\ntableProportionOfPatientsCovered(result)\n\n\n\n\n\n\n\n\n\n\n\n\nTime\nEstimate name\n\nCohort name\n\n\n\nacetaminophen\n\n\n\n\nGiBleed\n\n\n0\nPPC (95%CI)\n100.00% [99.86% - 100.00%]\n\n\n1\nPPC (95%CI)\n98.69% [98.19% - 99.06%]\n\n\n2\nPPC (95%CI)\n98.69% [98.19% - 99.06%]\n\n\n3\nPPC (95%CI)\n98.69% [98.19% - 99.06%]\n\n\n4\nPPC (95%CI)\n98.69% [98.19% - 99.06%]\n\n\n5\nPPC (95%CI)\n98.69% [98.19% - 99.06%]\n\n\n6\nPPC (95%CI)\n98.69% [98.19% - 99.06%]\n\n\n7\nPPC (95%CI)\n98.66% [98.15% - 99.03%]\n\n\n8\nPPC (95%CI)\n74.73% [73.05% - 76.34%]\n\n\n9\nPPC (95%CI)\n74.73% [73.05% - 76.34%]\n\n\n10\nPPC (95%CI)\n74.73% [73.05% - 76.34%]\n\n\n11\nPPC (95%CI)\n74.73% [73.05% - 76.34%]\n\n\n12\nPPC (95%CI)\n74.73% [73.05% - 76.34%]\n\n\n13\nPPC (95%CI)\n74.73% [73.05% - 76.34%]\n\n\n14\nPPC (95%CI)\n74.62% [72.93% - 76.23%]\n\n\n15\nPPC (95%CI)\n19.48% [18.03% - 21.03%]\n\n\n16\nPPC (95%CI)\n19.37% [17.92% - 20.91%]\n\n\n17\nPPC (95%CI)\n19.26% [17.81% - 20.80%]\n\n\n18\nPPC (95%CI)\n19.26% [17.81% - 20.80%]\n\n\n19\nPPC (95%CI)\n19.22% [17.78% - 20.76%]\n\n\n20\nPPC (95%CI)\n19.22% [17.78% - 20.76%]\n\n\n21\nPPC (95%CI)\n19.19% [17.74% - 20.72%]\n\n\n22\nPPC (95%CI)\n14.37% [13.09% - 15.75%]\n\n\n23\nPPC (95%CI)\n14.33% [13.06% - 15.71%]\n\n\n24\nPPC (95%CI)\n14.33% [13.06% - 15.71%]\n\n\n25\nPPC (95%CI)\n14.30% [13.02% - 15.67%]\n\n\n26\nPPC (95%CI)\n14.30% [13.02% - 15.67%]\n\n\n27\nPPC (95%CI)\n14.30% [13.02% - 15.67%]\n\n\n28\nPPC (95%CI)\n14.30% [13.02% - 15.67%]\n\n\n29\nPPC (95%CI)\n11.35% [10.20% - 12.60%]\n\n\n30\nPPC (95%CI)\n11.27% [10.13% - 12.53%]\n\n\n31\nPPC (95%CI)\n8.40% [7.41% - 9.51%]\n\n\n32\nPPC (95%CI)\n8.36% [7.37% - 9.47%]\n\n\n33\nPPC (95%CI)\n8.36% [7.37% - 9.47%]\n\n\n34\nPPC (95%CI)\n8.36% [7.37% - 9.47%]\n\n\n35\nPPC (95%CI)\n8.32% [7.34% - 9.43%]\n\n\n36\nPPC (95%CI)\n5.97% [5.14% - 6.93%]\n\n\n37\nPPC (95%CI)\n5.97% [5.14% - 6.93%]\n\n\n38\nPPC (95%CI)\n5.71% [4.89% - 6.65%]\n\n\n39\nPPC (95%CI)\n5.64% [4.82% - 6.57%]\n\n\n40\nPPC (95%CI)\n5.56% [4.76% - 6.49%]\n\n\n41\nPPC (95%CI)\n5.56% [4.76% - 6.49%]\n\n\n42\nPPC (95%CI)\n5.56% [4.76% - 6.49%]\n\n\n43\nPPC (95%CI)\n5.56% [4.76% - 6.49%]\n\n\n44\nPPC (95%CI)\n5.52% [4.72% - 6.45%]\n\n\n45\nPPC (95%CI)\n5.45% [4.65% - 6.37%]\n\n\n46\nPPC (95%CI)\n5.45% [4.65% - 6.37%]\n\n\n47\nPPC (95%CI)\n5.45% [4.65% - 6.37%]\n\n\n48\nPPC (95%CI)\n5.56% [4.76% - 6.49%]\n\n\n49\nPPC (95%CI)\n5.56% [4.76% - 6.49%]\n\n\n50\nPPC (95%CI)\n5.56% [4.76% - 6.49%]\n\n\n51\nPPC (95%CI)\n5.52% [4.72% - 6.45%]\n\n\n52\nPPC (95%CI)\n5.52% [4.72% - 6.45%]\n\n\n53\nPPC (95%CI)\n5.52% [4.72% - 6.45%]\n\n\n54\nPPC (95%CI)\n5.52% [4.72% - 6.45%]\n\n\n55\nPPC (95%CI)\n5.52% [4.72% - 6.45%]\n\n\n56\nPPC (95%CI)\n5.49% [4.69% - 6.41%]\n\n\n57\nPPC (95%CI)\n5.49% [4.69% - 6.41%]\n\n\n58\nPPC (95%CI)\n5.75% [4.93% - 6.69%]\n\n\n59\nPPC (95%CI)\n5.75% [4.93% - 6.69%]\n\n\n60\nPPC (95%CI)\n5.82% [5.00% - 6.77%]\n\n\n61\nPPC (95%CI)\n3.28% [2.67% - 4.03%]\n\n\n62\nPPC (95%CI)\n3.40% [2.77% - 4.15%]\n\n\n63\nPPC (95%CI)\n3.32% [2.71% - 4.07%]\n\n\n64\nPPC (95%CI)\n3.32% [2.71% - 4.07%]\n\n\n65\nPPC (95%CI)\n3.32% [2.71% - 4.07%]\n\n\n66\nPPC (95%CI)\n3.40% [2.77% - 4.15%]\n\n\n67\nPPC (95%CI)\n3.40% [2.77% - 4.15%]\n\n\n68\nPPC (95%CI)\n3.17% [2.57% - 3.91%]\n\n\n69\nPPC (95%CI)\n3.17% [2.57% - 3.91%]\n\n\n70\nPPC (95%CI)\n3.10% [2.51% - 3.82%]\n\n\n71\nPPC (95%CI)\n3.10% [2.51% - 3.82%]\n\n\n72\nPPC (95%CI)\n3.06% [2.47% - 3.78%]\n\n\n73\nPPC (95%CI)\n2.87% [2.31% - 3.58%]\n\n\n74\nPPC (95%CI)\n2.84% [2.27% - 3.54%]\n\n\n75\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n76\nPPC (95%CI)\n2.76% [2.21% - 3.45%]\n\n\n77\nPPC (95%CI)\n2.76% [2.21% - 3.45%]\n\n\n78\nPPC (95%CI)\n2.84% [2.27% - 3.54%]\n\n\n79\nPPC (95%CI)\n2.87% [2.31% - 3.58%]\n\n\n80\nPPC (95%CI)\n2.87% [2.31% - 3.58%]\n\n\n81\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n82\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n83\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n84\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n85\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n86\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n87\nPPC (95%CI)\n2.80% [2.24% - 3.49%]\n\n\n88\nPPC (95%CI)\n2.84% [2.27% - 3.54%]\n\n\n89\nPPC (95%CI)\n2.91% [2.34% - 3.62%]\n\n\n90\nPPC (95%CI)\n2.91% [2.34% - 3.62%]"
+  },
+  {
+    "objectID": "dus.html#proportion-of-patients-covered-2",
+    "href": "dus.html#proportion-of-patients-covered-2",
+    "title": "DrugUtilisation",
+    "section": "Proportion of patients covered",
+    "text": "Proportion of patients covered\n\nplotProportionOfPatientsCovered(result)\n\n\n\ngapEra parameter can have a big impact in survival analysis, whereas it does not have such big impact on proportion of patients covered."
+  },
+  {
+    "objectID": "dus.html#your-turn-1",
+    "href": "dus.html#your-turn-1",
+    "title": "DrugUtilisation",
+    "section": "Your turn",
+    "text": "Your turn\nCan you create a cohort of a certain ingredient and analyse its persistence in the following year?\nsuggestions: ‘clopidogrel’, ‘nitroglycerin’, ‘simvastatin’, ‘amlodipine’, ‘verapamil’ are the 5 most common ingredients in this database"
+  },
+  {
+    "objectID": "dus.html#solution",
+    "href": "dus.html#solution",
+    "title": "DrugUtilisation",
+    "section": "Solution",
+    "text": "Solution\n\n\n💡 Click to see solution\n\n\ncodelist &lt;- getDrugIngredientCodes(\n  cdm = cdm, \n  name = c('clopidogrel', 'nitroglycerin', 'simvastatin', 'amlodipine', 'verapamil'),\n  nameStyle = \"{concept_name}\"\n)\ncdm$persistence &lt;- conceptCohort(\n  cdm = cdm, \n  name = \"persistence\",\n  conceptSet = codelist\n)\nresult &lt;- summariseProportionOfPatientsCovered(cohort = cdm$persistence, followUpDays = 365)\nplotProportionOfPatientsCovered(result = result, colour = \"cohort_name\")"
+  },
+  {
+    "objectID": "dus.html#drug-restart-and-drug-switching",
+    "href": "dus.html#drug-restart-and-drug-switching",
+    "title": "DrugUtilisation",
+    "section": "Drug restart and drug switching",
+    "text": "Drug restart and drug switching\nWe have the ability to study drug restart or drug switching after a discontinuation:\n\nSwitching cohorts must be defined in advance.\nWe have to define the windows of interest.\nIndex date will be the date of discontinuation.\nReported percentages in each window will be:\nRestart: individuals that restarted and not switched.\nSwitch: individuals that switched and not restarted.\nRestart and switch: individuals that restarted and switched.\nUntreated: individuals that did not restart or switch."
+  },
+  {
+    "objectID": "dus.html#drug-restart-and-drug-switching-1",
+    "href": "dus.html#drug-restart-and-drug-switching-1",
+    "title": "DrugUtilisation",
+    "section": "Drug restart and drug switching",
+    "text": "Drug restart and drug switching\nLet’s define the cohorts of interest for switching:\n\ncodelist &lt;- getDrugIngredientCodes(\n  cdm = cdm, \n  name = c(\"clopidogrel\", \"simvastatin\", \"warfarin\"), \n  nameStyle = \"{concept_name}\"\n)\ncdm$switch &lt;- conceptCohort(\n  cdm = cdm, \n  name = \"switch\",\n  conceptSet = codelist\n)"
+  },
+  {
+    "objectID": "dus.html#drug-restart-and-drug-switching-2",
+    "href": "dus.html#drug-restart-and-drug-switching-2",
+    "title": "DrugUtilisation",
+    "section": "Drug restart and drug switching",
+    "text": "Drug restart and drug switching\nWe have to be careful with the inclusion criteria of the input cohort, as restart is derived from it.\n\n\nresult &lt;- cdm$dus_cohort |&gt;\n  summariseDrugRestart(\n    switchCohortTable = \"switch\", \n    followUpDays = c(90, 180, 270, 360), \n    restrictToFirstDiscontinuation = TRUE\n  )\nresult |&gt;\n  glimpse()\n\nRows: 32\nColumns: 13\n$ result_id        &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1\n$ cdm_name         &lt;chr&gt; \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBleed\", \"GiBl…\n$ group_name       &lt;chr&gt; \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"cohort_name\", \"co…\n$ group_level      &lt;chr&gt; \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetaminophen\", \"acetami…\n$ strata_name      &lt;chr&gt; \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"over…\n$ strata_level     &lt;chr&gt; \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"overall\", \"over…\n$ variable_name    &lt;chr&gt; \"Drug restart in 90 days\", \"Drug restart in 90 days\", \"Drug restart in 90 days\", \"Drug restar…\n$ variable_level   &lt;chr&gt; \"restart\", \"restart\", \"switch\", \"switch\", \"restart and switch\", \"restart and switch\", \"untrea…\n$ estimate_name    &lt;chr&gt; \"count\", \"percentage\", \"count\", \"percentage\", \"count\", \"percentage\", \"count\", \"percentage\", \"…\n$ estimate_type    &lt;chr&gt; \"integer\", \"percentage\", \"integer\", \"percentage\", \"integer\", \"percentage\", \"integer\", \"percen…\n$ estimate_value   &lt;chr&gt; \"43\", \"1.60507652108996\", \"0\", \"0\", \"0\", \"0\", \"2636\", \"98.39492347891\", \"97\", \"3.620754012691…\n$ additional_name  &lt;chr&gt; \"follow_up_days\", \"follow_up_days\", \"follow_up_days\", \"follow_up_days\", \"follow_up_days\", \"fo…\n$ additional_level &lt;chr&gt; \"90 days\", \"90 days\", \"90 days\", \"90 days\", \"90 days\", \"90 days\", \"90 days\", \"90 days\", \"180 …"
+  },
+  {
+    "objectID": "dus.html#drug-restart-and-drug-switching-3",
+    "href": "dus.html#drug-restart-and-drug-switching-3",
+    "title": "DrugUtilisation",
+    "section": "Drug restart and drug switching",
+    "text": "Drug restart and drug switching\n\n\ntableDrugRestart(result)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCDM name\n\n\n\n\n\nGiBleed\n\n\n\nTreatment\nEstimate name\n\nCohort name\n\n\n\nacetaminophen\n\n\n\n\nDrug restart in 90 days\n\n\nrestart\nN (%)\n43 (1.61 %)\n\n\nswitch\nN (%)\n0 (0.00 %)\n\n\nrestart and switch\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,636 (98.39 %)\n\n\nDrug restart in 180 days\n\n\nrestart\nN (%)\n97 (3.62 %)\n\n\nswitch\nN (%)\n0 (0.00 %)\n\n\nrestart and switch\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,582 (96.38 %)\n\n\nDrug restart in 270 days\n\n\nrestart\nN (%)\n175 (6.53 %)\n\n\nswitch\nN (%)\n0 (0.00 %)\n\n\nrestart and switch\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,504 (93.47 %)\n\n\nDrug restart in 360 days\n\n\nrestart\nN (%)\n244 (9.11 %)\n\n\nswitch\nN (%)\n1 (0.04 %)\n\n\nrestart and switch\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,434 (90.85 %)"
+  },
+  {
+    "objectID": "dus.html#drug-restart-and-drug-switching-4",
+    "href": "dus.html#drug-restart-and-drug-switching-4",
+    "title": "DrugUtilisation",
+    "section": "Drug restart and drug switching",
+    "text": "Drug restart and drug switching\n\nplotDrugRestart(result)"
+  },
+  {
+    "objectID": "dus.html#summarise-treatments",
+    "href": "dus.html#summarise-treatments",
+    "title": "DrugUtilisation",
+    "section": "Summarise treatments",
+    "text": "Summarise treatments\nsummariseTreatment() is a general function to analyse presence of treatments (cohorts) after an index date. This can be used with many different purposes:\n\nSummarise treatments after a certain condition\nAnalyse comedications\nAnalyse treatments after discontinuation\n…"
+  },
+  {
+    "objectID": "dus.html#lets-create-some-treatments-cohorts",
+    "href": "dus.html#lets-create-some-treatments-cohorts",
+    "title": "DrugUtilisation",
+    "section": "Let’s create some treatments cohorts",
+    "text": "Let’s create some treatments cohorts\n\ncodelist &lt;- getDrugIngredientCodes(\n  cdm = cdm, \n  name = c(\"clopidogrel\", \"simvastatin\", \"warfarin\", \"nitroglycerin\"),\n  nameStyle = \"{concept_name}\"\n)\ncdm$treatments &lt;- conceptCohort(\n  cdm = cdm, \n  name = \"treatments\",\n  conceptSet = codelist\n)\ncdm$osteoarthritis &lt;- conceptCohort(\n  cdm = cdm,\n  conceptSet = list(osteoarthritis = 80180L),\n  name = \"osteoarthritis\"\n)"
+  },
+  {
+    "objectID": "dus.html#summarise-treatments-after-condition",
+    "href": "dus.html#summarise-treatments-after-condition",
+    "title": "DrugUtilisation",
+    "section": "Summarise treatments after condition",
+    "text": "Summarise treatments after condition\n\nresult &lt;- cdm$osteoarthritis |&gt;\n  summariseTreatment(\n    window = list(c(1, 90), c(91, 180), c(181, 270), c(271, 360)), \n    treatmentCohortName = \"treatments\", \n    indexDate = \"cohort_start_date\", \n    censorDate = NULL\n  )"
+  },
+  {
+    "objectID": "dus.html#summarise-treatments-after-condition-1",
+    "href": "dus.html#summarise-treatments-after-condition-1",
+    "title": "DrugUtilisation",
+    "section": "Summarise treatments after condition",
+    "text": "Summarise treatments after condition\n\n\ntableTreatment(result, style = \"darwin\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCDM name\n\n\n\n\n\nGiBleed\n\n\n\nTreatment\nEstimate name\n\nCohort name\n\n\n\nosteoarthritis\n\n\n\n\nMedication from 1 day after to 90 days after the index date\n\n\nclopidogrel\nN (%)\n9 (0.34 %)\n\n\nnitroglycerin\nN (%)\n20 (0.76 %)\n\n\nsimvastatin\nN (%)\n1 (0.04 %)\n\n\nwarfarin\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,608 (99.16 %)\n\n\nnot in observation\nN (%)\n0 (0.00 %)\n\n\nMedication from 91 days after to 180 days after the index date\n\n\nclopidogrel\nN (%)\n10 (0.38 %)\n\n\nnitroglycerin\nN (%)\n20 (0.76 %)\n\n\nsimvastatin\nN (%)\n0 (0.00 %)\n\n\nwarfarin\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,583 (98.21 %)\n\n\nnot in observation\nN (%)\n25 (0.95 %)\n\n\nMedication from 181 days after to 270 days after the index date\n\n\nclopidogrel\nN (%)\n9 (0.34 %)\n\n\nnitroglycerin\nN (%)\n20 (0.76 %)\n\n\nsimvastatin\nN (%)\n1 (0.04 %)\n\n\nwarfarin\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,569 (97.68 %)\n\n\nnot in observation\nN (%)\n40 (1.52 %)\n\n\nMedication from 271 days after to 360 days after the index date\n\n\nclopidogrel\nN (%)\n11 (0.42 %)\n\n\nnitroglycerin\nN (%)\n21 (0.80 %)\n\n\nsimvastatin\nN (%)\n1 (0.04 %)\n\n\nwarfarin\nN (%)\n0 (0.00 %)\n\n\nuntreated\nN (%)\n2,547 (96.84 %)\n\n\nnot in observation\nN (%)\n60 (2.28 %)"
+  },
+  {
+    "objectID": "dus.html#summarise-treatments-after-condition-2",
+    "href": "dus.html#summarise-treatments-after-condition-2",
+    "title": "DrugUtilisation",
+    "section": "Summarise treatments after condition",
+    "text": "Summarise treatments after condition\n\nplotTreatment(result)"
+  },
+  {
+    "objectID": "dus.html#summarise-treatments-after-discontinuation",
+    "href": "dus.html#summarise-treatments-after-discontinuation",
+    "title": "DrugUtilisation",
+    "section": "Summarise treatments after discontinuation",
+    "text": "Summarise treatments after discontinuation\n\nresult &lt;- cdm$dus_cohort |&gt;\n  summariseTreatment(\n    window = list(c(1, 90), c(91, 180), c(181, 270), c(271, 360)), \n    treatmentCohortName = \"treatments\", \n    indexDate = \"cohort_end_date\", \n    censorDate = NULL\n  )"
+  },
+  {
+    "objectID": "dus.html#summarise-treatments-after-discontinuation-1",
+    "href": "dus.html#summarise-treatments-after-discontinuation-1",
+    "title": "DrugUtilisation",
+    "section": "Summarise treatments after discontinuation",
+    "text": "Summarise treatments after discontinuation\n\nplotTreatment(result)"
+  },
+  {
+    "objectID": "dus.html#summarise-comedications",
+    "href": "dus.html#summarise-comedications",
+    "title": "DrugUtilisation",
+    "section": "Summarise comedications",
+    "text": "Summarise comedications\n\ncomedications &lt;- cdm$dus_cohort |&gt;\n  summariseTreatment(\n    window = c(0, Inf), \n    treatmentCohortName = \"treatments\", \n    indexDate = \"cohort_start_date\", \n    censorDate = \"cohort_end_date\"\n  )"
+  },
+  {
+    "objectID": "dus.html#summarise-comedications-1",
+    "href": "dus.html#summarise-comedications-1",
+    "title": "DrugUtilisation",
+    "section": "Summarise comedications",
+    "text": "Summarise comedications\n\nplotTreatment(comedications, style = \"darwin\")"
+  },
+  {
     "objectID": "dus.html#drugutilisation",
     "href": "dus.html#drugutilisation",
     "title": "DrugUtilisation",
     "section": "DrugUtilisation",
-    "text": "DrugUtilisation"
+    "text": "DrugUtilisation\n\n\n👉 Packages website\n👉 CRAN link\n👉 Manual\n📧 marti.catalasabate@ndorms.ox.ac.uk"
   }
 ]
