@@ -3,9 +3,13 @@
 
 To conduct this training you will need to install some tools:
 
-  1. [Download and install R](https://cran.r-project.org)
-  2. Download and install an Integrated Development Environment (IDE) in general we use [R studio](https://posit.co/download/rstudio-desktop/), but feel free to use the IDE that you prefer. Other interesting IDEs might be: [Positron](https://positron.posit.co) or [Visual Studio Code](https://code.visualstudio.com/Download).
-  3. Make sure you have the required packages installed:
+  1. **[Download and install R](https://cran.r-project.org)**
+  
+  2. **Download and install an Integrated Development Environment (IDE)**
+  
+  In general we use [R studio](https://posit.co/download/rstudio-desktop/), but feel free to use the IDE that you prefer. Other interesting IDEs might be: [Positron](https://positron.posit.co) or [Visual Studio Code](https://code.visualstudio.com/Download).
+  
+  3. **Make sure you have the required packages installed**
 
 ```{r, eval=FALSE}
 install.packages("pak")
@@ -18,7 +22,8 @@ pak::pkg_install(c(
 ))
 ```
 
-  4. Set up your environment:
+  4. **Set up your environment**
+  
 ```{r, eval=FALSE}
 library(usethis)
 edit_r_environ()
@@ -30,29 +35,31 @@ Write the path to a folder in your computer to save the mock data:
 OMOP_DATA_FOLDER = "path/to/my/folder"
 ```
 
-  5. Restart R
+  5. **Restart R**
   
-  6. Check your data folder has been set properly.
+  6. **Check your data folder has been set properly.**
   
 ```{r, eval=FALSE}
 library(omopgenerics)
 omopDataFolder()
 ```
 
-  7. Download *Eunomia* dataset:
+  7. **Download _Eunomia_ dataset:**
   
 ```{r, eval=FALSE}
 library(omock)
 downloadMockDataset(datasetName = "GiBleed")
 ```
 
-  8. Create a reference to the *Eunomia* dataset:
+  8. **Create a reference to the _Eunomia_ dataset:**
 
 ```{r, echo=FALSE}
 library(omock)
 ```
-```{r}
+```{r, message=FALSE}
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")
+```
+```{r}
 cdm
 ```
 
