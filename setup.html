@@ -207,9 +207,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Let’s get started</h1>
 <p>To conduct this training you will need to install some tools:</p>
 <ol type="1">
-<li><a href="https://cran.r-project.org">Download and install R</a></li>
-<li>Download and install an Integrated Development Environment (IDE) in general we use <a href="https://posit.co/download/rstudio-desktop/">R studio</a>, but feel free to use the IDE that you prefer. Other interesting IDEs might be: <a href="https://positron.posit.co">Positron</a> or <a href="https://code.visualstudio.com/Download">Visual Studio Code</a>.</li>
-<li>Make sure you have the required packages installed:</li>
+<li><p><strong><a href="https://cran.r-project.org">Download and install R</a></strong></p></li>
+<li><p><strong>Download and install an Integrated Development Environment (IDE)</strong></p></li>
+</ol>
+<p>In general we use <a href="https://posit.co/download/rstudio-desktop/">R studio</a>, but feel free to use the IDE that you prefer. Other interesting IDEs might be: <a href="https://positron.posit.co">Positron</a> or <a href="https://code.visualstudio.com/Download">Visual Studio Code</a>.</p>
+<ol start="3" type="1">
+<li><strong>Make sure you have the required packages installed</strong></li>
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pak"</span>)</span>
@@ -222,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
-<li>Set up your environment:</li>
+<li><strong>Set up your environment</strong></li>
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
@@ -231,44 +234,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Write the path to a folder in your computer to save the mock data:</p>
 <pre><code>OMOP_DATA_FOLDER = "path/to/my/folder"</code></pre>
 <ol start="5" type="1">
-<li><p>Restart R</p></li>
-<li><p>Check your data folder has been set properly.</p></li>
+<li><p><strong>Restart R</strong></p></li>
+<li><p><strong>Check your data folder has been set properly.</strong></p></li>
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(omopgenerics)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">omopDataFolder</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="7" type="1">
-<li>Download <em>Eunomia</em> dataset:</li>
+<li><strong>Download <em>Eunomia</em> dataset:</strong></li>
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(omock)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadMockDataset</span>(<span class="at">datasetName =</span> <span class="st">"GiBleed"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="8" type="1">
-<li>Create a reference to the <em>Eunomia</em> dataset:</li>
+<li><strong>Create a reference to the <em>Eunomia</em> dataset:</strong></li>
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">mockCdmFromDataset</span>(<span class="at">datasetName =</span> <span class="st">"GiBleed"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>ℹ Reading GiBleed tables.
-ℹ Adding drug_strength table.
-ℹ Creating local &lt;cdm_reference&gt; object.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cdm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cdm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>
-── # OMOP CDM reference (local) of GiBleed ─────────────────────────────────────
-• omop tables: care_site, cdm_source, concept, concept_ancestor, concept_class,
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── # OMOP CDM reference (local) of GiBleed ─────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• omop tables: care_site, cdm_source, concept, concept_ancestor, concept_class,
 concept_relationship, concept_synonym, condition_era, condition_occurrence,
 cost, death, device_exposure, domain, dose_era, drug_era, drug_exposure,
 drug_strength, fact_relationship, location, measurement, metadata, note,
 note_nlp, observation, observation_period, payer_plan_period, person,
 procedure_occurrence, provider, relationship, source_to_concept_map, specimen,
-visit_detail, visit_occurrence, vocabulary
-• cohort tables: -
-• achilles tables: -
-• other tables: -</code></pre>
+visit_detail, visit_occurrence, vocabulary</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• cohort tables: -</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• achilles tables: -</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• other tables: -</code></pre>
 </div>
 </div>
 <p>You are all set :)</p>
